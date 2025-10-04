@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
   let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
   let currentUser = { name: 'Employee1' }; 
@@ -83,7 +85,6 @@ function approveExpense(id, action) {
     { role: 'Finance', name: 'Finance1', sequence: 2 },
     { role: 'Director', name: 'Director1', sequence: 3 }
   ];
-
   expenses = expenses.map(exp => {
     if (exp.id == id) {
       exp.approvals.push({ approver: approvers[exp.currentApprover].name, action });
@@ -99,7 +100,7 @@ function approveExpense(id, action) {
     return exp;
   });
   localStorage.setItem('expenses', JSON.stringify(expenses));
-  alert(⚖ Expense ${action}!);
+  alert(`⚖ Expense ${action}!`); // 👈 Fixed missing quotes here 🌟
   location.reload();
 }
 
@@ -108,5 +109,6 @@ function checkApprovalRules(approvals) {
   const totalApprovers = 3;
   const percentRule = approveCount / totalApprovers >= 0.6; 
   const directorApproved = approvals.some(a => a.approver === 'Director1');
-  return percentRule || directorApproved; 
+  return percentRule || directorApproved;
 }
+
