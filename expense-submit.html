@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🚀 Submit Expense - ExpensePal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>💰 Submit Expense Claim</h2>
+  <form id="expenseForm">
+    <label>🤑 Amount:</label><br>
+    <input type="number" name="amount" step="0.01" required><br><br>
+    <label>🌏 Currency:</label><br>
+    <select name="currency">
+      <option value="INR">INR (₹)</option>
+      <option value="USD">USD ($)</option>
+      <option value="GBP">GBP (£)</option>
+    </select><br><br>
+    <label>📂 Category:</label><br>
+    <select name="category">
+      <option value="Travel">✈ Travel</option>
+      <option value="Food">🍴 Food</option>
+      <option value="Office">🏢 Office</option>
+      <option value="Other">🔹 Other</option>
+    </select><br><br>
+    <label>📝 Description:</label><br>
+    <textarea name="description" required></textarea><br><br>
+    <label>📆 Date:</label><br>
+    <input type="date" name="date" required><br><br>
+    <button type="submit">🚀 Submit Expense</button>
+  </form>
+
+  <h2>📜 Your Expense History</h2>
+  <table id="expenseHistoryTable">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="expenseHistoryBody"></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>

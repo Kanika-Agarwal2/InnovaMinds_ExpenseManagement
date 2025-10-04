@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🚀 Expense - ExpensePal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>💰 Submit Expense Claim</h2>
+  <form id="expenseForm">
+    <label>🤑 Amount:</label><br>
+    <input type="number" name="amount" step="0.01" required><br><br>
+    <label>🌏 Currency:</label><br>
+    <select name="currency">
+      <option value="INR">INR (₹)</option>
+      <option value="USD">USD ($)</option>
+      <option value="GBP">GBP (£)</option>
+    </select><br><br>
+    <label>📂 Category:</label><br>
+    <select name="category">
+      <option value="Travel">✈ Travel</option>
+      <option value="Food">🍴 Food</option>
+      <option value="Office">🏢 Office</option>
+    </select><br><br>
+    <label>📝 Description:</label><br>
+    <textarea name="description" required></textarea><br><br>
+    <label>📆 Date:</label><br>
+    <input type="date" name="date" required><br><br>
+    <button type="submit">🚀 Submit Expense</button>
+  </form>
+  <h2>📜 Expense History</h2>
+  <table id="expenseHistoryTable">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="expenseHistoryBody"></tbody>
+  </table>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+      let currentUser = { name: 'Employee1' };
+
+      const expenseForm = document.getElementById('expenseForm');
+      if (expenseForm) {
+        expenseForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const data = Object.fromEntries(formData);
+          const expense = {
+            id: Date.now(),
+            user: currentUser.name,
+            amount: data.amount,
+            currency: data.currency,
+            category: data.category,
+            description: data.description,
+            date: data.date,
+            status: 'Pending'
+          };
+          expenses.push(expense);
+          localStorage.setItem('expenses', JSON.stringify(expenses));
+          alert('💰 Expense submitted!');
+          displayExpenseHistory();
+        });
+      }
+
+      function displayExpenseHistory() {
+        const tbody = document.getElementById('expenseHistoryBody');
+        if (tbody) {
+          tbody.innerHTML = '';
+          const userExpenses = expenses.filter(exp => exp.user === currentUser.name);
+          userExpenses.forEach(expense => {
+            tbody.innerHTML += `
+              <tr>
+                <td>${expense.amount}</td>
+                <td>${expense.currency}</td>
+                <td>${expense.category}</td>
+                <td>${expense.description}</td>
+                <td>${expense.date}</td>
+                <td>${expense.status === 'Approved' ? '✅ Approved' : expense.status === 'Rejected' ? '❌ Rejected' : '🕰 Pending'}</td>
+              </tr>
+            `;
+          });
+        }
+      }
+      displayExpenseHistory();
+    });
+  </script>
+  <style>
+    body { 
+      font-family: 'Comic Sans MS', cursive; 
+      margin: 0; 
+      padding: 20px; 
+      background: #fdf6e3; 
+    }
+    form { 
+      background: #fff8dc; 
+      padding: 20px; 
+      border-radius: 10px; 
+      max-width: 300px; 
+      margin: 20px auto; 
+    }
+    button { 
+      background: #99ff99; 
+      border: none; 
+      padding: 10px; 
+      border-radius: 5px; 
+      cursor: pointer; 
+    }
+    button:hover { 
+      background: #66ff66; 
+    }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 20px 0; 
+    }
+    th, td { 
+      border: 1px solid #ddd; 
+      padding: 8px; 
+      text-align: left; 
+    }
+  </style>
+</body>
+</html>
+
+

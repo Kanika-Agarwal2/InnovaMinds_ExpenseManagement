@@ -1,0 +1,141 @@
+
+    <!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💰 ExpensePal - Manage Your Expenses 🐝</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌟 Welcome to ExpensePal 🐝</h1>
+    <nav>
+      <a href="signup.html">🚀 Signup</a>
+      <a href="login.html">🔒 Login</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Hey there, Budget Buddy 👋!</h2>
+    <p>Manage your expenses easily with a splash of fun 💖!</p>
+    <img src="https:                                                                                                             
+    <p>Track spending, save dreams 🏞!</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🚀 Signup for ExpensePal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>🎉 Signup for ExpensePal</h2>
+  <form id="signupForm">
+    <label>👤 Name:</label><br>
+    <input type="text" name="name" required><br><br>
+    <label>📧 Email:</label><br>
+    <input type="email" name="email" required><br><br>
+    <label>🔑 Password:</label><br>
+    <input type="password" name="password" required><br><br>
+    <label>🌏 Country:</label><br>
+    <select name="country">
+      <option value="India">India 🇮🇳</option>
+      <option value="USA">USA 🇺🇸</option>
+      <option value="UK">UK 🇬🇧</option>
+    </select><br><br>
+    <button type="submit">🚀 Join ExpensePal</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔒 Login to ExpensePal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>🔑 Login to ExpensePal</h2>
+  <form id="loginForm">
+    <label>📧 Email:</label><br>
+    <input type="email" name="email" required><br><br>
+    <label>🔑 Password:</label><br>
+    <input type="password" name="password" required><br><br>
+    <button type="submit">👉 Enter ExpensePal</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📊 Your ExpensePal Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>🌟 Hey, Budget Buddy! Here's Your Dashboard</h2>
+  <p>💰 Track your expenses, save your pennies 🐖!</p>
+  <button id="logout">🚪 Logout</button>
+  <a href="admin.html">👑 Go to Admin Panel</a>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>👑 Admin Panel - ExpensePal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>👑 Admin Panel</h2>
+  <h3>Create User</h3>
+  <form id="createUserForm">
+    <label>👤 Name:</label><br>
+    <input type="text" name="name" required><br><br>
+    <label>📧 Email:</label><br>
+    <input type="email" name="email" required><br><br>
+    <label>🔑 Password:</label><br>
+    <input type="password" name="password" required><br><br>
+    <label>👥 Role:</label><br>
+    <select name="role">
+      <option value="Employee">Employee</option>
+      <option value="Manager">Manager</option>
+    </select><br><br>
+    <label>👨‍💼 Manager:</label><br>
+    <select name="manager"></select><br><br>
+    <button type="submit">👤 Create User</button>
+  </form>
+  <h3>Users</h3>
+  <table id="userTable">
+    <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Manager</th><th>Actions</th></tr></thead>
+    <tbody id="userTableBody"></tbody>
+  </table>
+  <nav>
+  <a href="index.html">🏠 Home</a> |
+  <a href="signup.html">🚀 Signup</a> |
+  <a href="login.html">🔒 Login</a> |
+  <a href="dashboard.html">📊 Dashboard</a> |
+  <a href="expense-submit.html">🚀 Submit Expense</a> |
+  <a href="manager-approval.html">👨‍💼 Manager Approval</a> |
+  <a href="admin.html">👑 Admin Panel</a>
+  <a href="expense.html"> Approval or Rejection </a>
+</nav>
+  <script src="script.js"></script>
+</body>
+</html>
+
